@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArcherController : CharacterController
+public class MageController : CharacterController
 {
     private void Power()
     {
-        Debug.Log("Archer Power");
+        Debug.Log("Mage Power");
     }
 }
