@@ -48,7 +48,7 @@ public class CharacterController : MonoBehaviour {
     {
         if (isPlayer)
         {
-            rb.MovePosition(rb.position + moveAmount * Time.fixedDeltaTime);
+            //rb.MovePosition(rb.position + moveAmount * Time.fixedDeltaTime);
         }
     }
 
