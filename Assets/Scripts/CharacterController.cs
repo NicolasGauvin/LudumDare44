@@ -65,9 +65,6 @@ public class CharacterController : MonoBehaviour {
 
     public void UpdateTag()
     {
-
-        Debug.Log(gameObject.tag);
-
         if (isPlayer)
         {
             gameObject.tag = "Player";
@@ -76,6 +73,11 @@ public class CharacterController : MonoBehaviour {
         {
             gameObject.tag = "None";
         }
+    }
+
+    public void UpdateIsPlayer()
+    {
+        isPlayer = !isPlayer;
     }
 
 }

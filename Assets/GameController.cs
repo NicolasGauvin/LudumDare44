@@ -7,6 +7,13 @@ public class GameController : MonoBehaviour {
     private bool isTimeSlowed;
     public int soulTime;
 
+    public GameObject player;
+
+    void Start()
+    {
+        GetPlayerInformation();
+    }
+
     public void GameEnd(bool isWon)
     {
         if (isWon)
@@ -28,9 +35,23 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    private void SwapCharacters()
+    public void GetPlayerInformation()
     {
-        
+        player = GameObject.FindWithTag("Player");
+    }
+
+    private void SwapCharacters(GameObject target)
+    {
+        target.GetComponent<CharacterController>().UpdateIsPlayer();
+        target.GetComponent<CharacterController>().UpdateTag();
+        player.GetComponent<CharacterController>().UpdateIsPlayer();
+        player.GetComponent<CharacterController>().UpdateTag();
+        GameObject[] characters = GameObject.FindGameObjectsWithTag("None");
+        foreach (GameObject character in characters)
+        {
+            character.GetComponent<CharacterController>().GetPlayerInformation();
+        }
+        GetPlayerInformation();
     }
 
     void Update()
@@ -55,7 +76,7 @@ public class GameController : MonoBehaviour {
                 if (hit.collider != null)
                 {
                     Debug.Log(hit.collider.gameObject.name);
-                    hit.collider.attachedRigidbody.AddForce(Vector2.up);
+                    SwapCharacters(hit.collider.gameObject);
                 }
             }
         }
