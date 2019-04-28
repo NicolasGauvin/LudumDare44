@@ -63,13 +63,24 @@ C:\Program Files\Unity\Hub\Editor\2018.3.14f1\Editor\Data\Managed/UnityEngine/Un
 C:\Program Files\Unity\Hub\Editor\2018.3.14f1\Editor\Data\Managed/UnityEditor.dll
 C:\Program Files\Unity\Hub\Editor\2018.3.14f1\Editor\Data\Managed/Unity.Locator.dll
 C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
+C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll
 C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll
+C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll
 C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
+C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll
+C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll
 C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll
+C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll
 C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll
+C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll
+C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/Managed/UnityEditor.Graphs.dll
+C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll
+C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll
+C:/Users/Nicolas Gauvin/Documents/Unity Projects/Ludum Dare 44/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll
 C:/Users/Nicolas Gauvin/Documents/Unity Projects/Ludum Dare 44/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll
 C:/Users/Nicolas Gauvin/Documents/Unity Projects/Ludum Dare 44/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll
 C:/Users/Nicolas Gauvin/Documents/Unity Projects/Ludum Dare 44/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll
+C:/Users/Nicolas Gauvin/Documents/Unity Projects/Ludum Dare 44/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll
 C:\Program Files\Unity\Hub\Editor\2018.3.14f1\Editor\Data\MonoBleedingEdge\lib\mono\unity\mscorlib.dll
 C:\Program Files\Unity\Hub\Editor\2018.3.14f1\Editor\Data\MonoBleedingEdge\lib\mono\unity\System.dll
 C:\Program Files\Unity\Hub\Editor\2018.3.14f1\Editor\Data\MonoBleedingEdge\lib\mono\unity\System.Core.dll
@@ -79,17 +90,6 @@ C:\Program Files\Unity\Hub\Editor\2018.3.14f1\Editor\Data\MonoBleedingEdge\lib\m
 C:\Program Files\Unity\Hub\Editor\2018.3.14f1\Editor\Data\MonoBleedingEdge\lib\mono\unity\UnityScript.dll
 C:\Program Files\Unity\Hub\Editor\2018.3.14f1\Editor\Data\MonoBleedingEdge\lib\mono\unity\UnityScript.Lang.dll
 C:\Program Files\Unity\Hub\Editor\2018.3.14f1\Editor\Data\MonoBleedingEdge\lib\mono\unity\Boo.Lang.dll
-C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll
-C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll
-C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll
-C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll
-C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll
-C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll
-C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/Managed/UnityEditor.Graphs.dll
-C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll
-C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll
-C:/Users/Nicolas Gauvin/Documents/Unity Projects/Ludum Dare 44/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll
-C:/Users/Nicolas Gauvin/Documents/Unity Projects/Ludum Dare 44/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll
 C:\Program Files\Unity\Hub\Editor\2018.3.14f1\Editor\Data\Managed/UnityEngine/UnityEngine.SpatialTrackingModule.dll
 C:\Program Files\Unity\Hub\Editor\2018.3.14f1\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\mscorlib.dll
 C:\Program Files\Unity\Hub\Editor\2018.3.14f1\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.dll

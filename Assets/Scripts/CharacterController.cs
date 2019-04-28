@@ -13,7 +13,7 @@ public class CharacterController : MonoBehaviour {
     private Rigidbody2D rb;
     private Vector2 moveAmount;
 
-    private float cooldown;
+    public float cooldown;
 
     public bool isPlayer;
 
@@ -22,12 +22,12 @@ public class CharacterController : MonoBehaviour {
         transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (isPlayer)
         {
