@@ -14,6 +14,8 @@ public class CharacterController : MonoBehaviour {
     private Vector2 moveAmount;
 
     public float cooldown;
+    public float attackDuration;
+    public float attackTime;
 
     public bool isPlayer;
 
@@ -33,6 +35,7 @@ public class CharacterController : MonoBehaviour {
         {
             Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             moveAmount = moveInput.normalized * speed;
+            Debug.Log(moveAmount);
         }
         else
         {
