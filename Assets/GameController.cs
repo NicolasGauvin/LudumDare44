@@ -7,11 +7,11 @@ public class GameController : MonoBehaviour {
     private bool isTimeSlowed;
     public int soulTime;
 
-    public GameObject player;
+    public static GameObject player;
 
     void Start()
     {
-        GetPlayerInformation();
+        player = GetPlayerInformation();
     }
 
     public void GameEnd(bool isWon)
@@ -35,23 +35,18 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    public void GetPlayerInformation()
+    public GameObject GetPlayerInformation()
     {
-        player = GameObject.FindWithTag("Player");
+        return GameObject.FindWithTag("Player");
     }
 
     private void SwapCharacters(GameObject target)
     {
-        target.GetComponent<CharacterController>().UpdateIsPlayer();
-        target.GetComponent<CharacterController>().UpdateTag();
         player.GetComponent<CharacterController>().UpdateIsPlayer();
         player.GetComponent<CharacterController>().UpdateTag();
-        GameObject[] characters = GameObject.FindGameObjectsWithTag("None");
-        foreach (GameObject character in characters)
-        {
-            character.GetComponent<CharacterController>().GetPlayerInformation();
-        }
-        GetPlayerInformation();
+        target.GetComponent<CharacterController>().UpdateIsPlayer();
+        target.GetComponent<CharacterController>().UpdateTag();
+        player = GetPlayerInformation();
     }
 
     void Update()
