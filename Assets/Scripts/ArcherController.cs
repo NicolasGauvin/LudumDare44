@@ -59,7 +59,7 @@ public class ArcherController : CharacterController
                     weapon.position = rightSource.position;
                     weapon.eulerAngles = new Vector3(0, 0, 180);
                 }
-                Instantiate(arrow, spawner3.position, Quaternion.identity);
+                Instantiate(arrow, spawner3.position, weapon.rotation);
                 Invoke("HideWeapon", attackDuration);
             }
         }
