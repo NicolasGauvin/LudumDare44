@@ -8,7 +8,7 @@ public class CharacterController : MonoBehaviour {
     public float health;
     public float stopDistance;
 
-    public Transform player;
+    public GameObject gameController;
 
     private Rigidbody2D rb;
     private Vector2 moveAmount;
@@ -17,7 +17,7 @@ public class CharacterController : MonoBehaviour {
 
     public bool isPlayer;
 
-    void MoveTowardsPlayer()
+    void MoveTowardsPlayer(Transform player)
     {
         transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
     }
@@ -25,7 +25,6 @@ public class CharacterController : MonoBehaviour {
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        GetPlayerInformation();
     }
 
     void Update()
@@ -37,7 +36,8 @@ public class CharacterController : MonoBehaviour {
         }
         else
         {
-            MoveTowardsPlayer();
+            Debug.Log(gameController.GetComponent<PlayerInformation>().GetPlayer());
+            MoveTowardsPlayer(gameController.GetComponent<PlayerInformation>().GetPlayer().transform);
         }
     }
 
@@ -47,11 +47,6 @@ public class CharacterController : MonoBehaviour {
         {
             rb.MovePosition(rb.position + moveAmount * Time.fixedDeltaTime);
         }
-    }
-
-    public void GetPlayerInformation()
-    {
-        player = GameObject.FindWithTag("Player").transform;
     }
 
     public void TakeDamage(int damageAmount)
@@ -71,7 +66,7 @@ public class CharacterController : MonoBehaviour {
         }
         else
         {
-            gameObject.tag = "None";
+            gameObject.tag = "Untagged";
         }
     }
 
