@@ -8,6 +8,7 @@ public class ArrowController : MonoBehaviour
     public float speed;
     public float lifeTime;
     public int damage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class ArrowController : MonoBehaviour
         Destroy(gameObject);
     }
 
+
     void Update()
     {
         transform.Translate(Vector2.left * speed * Time.deltaTime);
@@ -28,8 +30,11 @@ public class ArrowController : MonoBehaviour
     {
         if (collision.tag == "Untagged")
         {
-            //collision.GetComponent<EnemyController>().TakeDamage(damage);
+            DestroyProjectile();
+            collision.GetComponent<CharacterController>().TakeDamage(2);
+        }else if (collision.tag == "Terrain")
+        {
+            DestroyProjectile();
         }
-        DestroyProjectile();
     }
 }

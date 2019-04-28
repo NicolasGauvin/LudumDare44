@@ -33,38 +33,53 @@ public class ArcherController : CharacterController
     {
         base.Update();
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+        if (isPlayer)
         {
-            if(Time.time >= attackTime)
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                if (Time.time >= attackTime)
+                {
+                    attackTime = Time.time + cooldown;
+                    HideWeapon();
+                    if (Input.GetKeyDown(KeyCode.UpArrow))
+                    {
+                        weapon.position = upSource.position;
+                        weapon.eulerAngles = new Vector3(0, 0, -90);
+                    }
+                    else if (Input.GetKeyDown(KeyCode.DownArrow))
+                    {
+                        weapon.position = downSource.position;
+                        weapon.eulerAngles = new Vector3(0, 0, 90);
+                    }
+                    else if (Input.GetKeyDown(KeyCode.LeftArrow))
+                    {
+                        weapon.position = leftSource.position;
+                        weapon.eulerAngles = new Vector3(0, 0, 0);
+                    }
+                    else if (Input.GetKeyDown(KeyCode.RightArrow))
+                    {
+                        weapon.position = rightSource.position;
+                        weapon.eulerAngles = new Vector3(0, 0, 180);
+                    }
+                    Instantiate(arrow, spawner3.position, weapon.rotation);
+                    Invoke("HideWeapon", attackDuration);
+                }
+            }
+        }
+        else
+        {
+            if (Time.time >= attackTime)
             {
                 attackTime = Time.time + cooldown;
                 HideWeapon();
-                if (Input.GetKeyDown(KeyCode.UpArrow))
-                {
-                    weapon.position = upSource.position;
-                    weapon.eulerAngles = new Vector3(0, 0, -90);
-                }
-                else if (Input.GetKeyDown(KeyCode.DownArrow))
-                {
-                    weapon.position = downSource.position;
-                    weapon.eulerAngles = new Vector3(0, 0, 90);
-                }
-                else if (Input.GetKeyDown(KeyCode.LeftArrow))
-                {
-                    weapon.position = leftSource.position;
-                    weapon.eulerAngles = new Vector3(0, 0, 0);
-                }
-                else if (Input.GetKeyDown(KeyCode.RightArrow))
-                {
-                    weapon.position = rightSource.position;
-                    weapon.eulerAngles = new Vector3(0, 0, 180);
-                }
+                weapon.position = leftSource.position;
+                weapon.eulerAngles = new Vector3(0, 0, 0);
                 Instantiate(arrow, spawner3.position, weapon.rotation);
                 Invoke("HideWeapon", attackDuration);
             }
         }
+        
     }
-
 
     private void HideWeapon()
     {

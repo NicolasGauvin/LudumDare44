@@ -35,11 +35,9 @@ public class CharacterController : MonoBehaviour {
         {
             Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             moveAmount = moveInput.normalized * speed;
-            Debug.Log(moveAmount);
         }
         else
         {
-            Debug.Log(gameController.GetComponent<PlayerInformation>().GetPlayer());
             MoveTowardsPlayer(gameController.GetComponent<PlayerInformation>().GetPlayer().transform);
         }
     }
@@ -48,7 +46,7 @@ public class CharacterController : MonoBehaviour {
     {
         if (isPlayer)
         {
-            //rb.MovePosition(rb.position + moveAmount * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + moveAmount * Time.fixedDeltaTime);
         }
     }
 
