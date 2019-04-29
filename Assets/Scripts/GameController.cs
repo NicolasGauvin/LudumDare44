@@ -32,6 +32,7 @@ public class GameController : MonoBehaviour {
         {
             Time.timeScale = 1.0f;
             isTimeSlowed = false;
+            GetComponent<PlayerInformation>().UpdateSoulTime();
         }
     }
 
@@ -40,24 +41,29 @@ public class GameController : MonoBehaviour {
         return GameObject.FindWithTag("Player");
     }
 
+    public bool IsSoulTime()
+    {
+        return isTimeSlowed;
+    }
+
     private void SwapCharacters(GameObject target)
     {
-        player.GetComponent<CharacterController>().UpdateIsPlayer();
-        player.GetComponent<CharacterController>().UpdateTag();
         target.GetComponent<CharacterController>().UpdateIsPlayer();
         target.GetComponent<CharacterController>().UpdateTag();
-        player = GetPlayerInformation();
     }
 
     void Update()
     {
         if (isTimeSlowed == false)
         {
-            if (Input.GetKey("e"))
+            if (Input.GetKey("a"))
             {
                 isTimeSlowed = true;
+                GetComponent<PlayerInformation>().UpdateSoulTime();
                 Time.timeScale = 0.1f;
-                Invoke("ResetTimeScale", soulTime * 0.1f);
+                Invoke("ResetTimeScale", soulTime * 0.5f);
+                //player.GetComponent<CharacterController>().UpdateIsPlayer();
+                //player.GetComponent<CharacterController>().UpdateTag();
             }
         }
         else
