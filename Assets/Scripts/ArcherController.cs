@@ -18,6 +18,9 @@ public class ArcherController : CharacterController
     public Transform spawner5;
 
     public GameObject arrow;
+    public GameObject ennemyArrow;
+
+    public Transform shotPoint;
 
     private void Power()
     {
@@ -68,9 +71,16 @@ public class ArcherController : CharacterController
         }
         else
         {
-            
+            if (Vector2.Distance(transform.position, globalPlayer.gameObject.transform.position) < stopDistance && Time.time >= attackTime && !gameController.GetComponent<PlayerInformation>().IsSoulTime())
+            {
+                attackTime = Time.time + cooldown;
+                Vector2 direction = globalPlayer.gameObject.transform.position - shotPoint.position;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                Quaternion rotation = Quaternion.AngleAxis(angle - 180, Vector3.forward);
+                shotPoint.rotation = rotation;
+                Instantiate(ennemyArrow, shotPoint.position, shotPoint.rotation);
+            }
         }
-        
     }
 
     public void ComputerAttack()

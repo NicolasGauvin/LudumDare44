@@ -11,7 +11,7 @@ public class CharacterController : MonoBehaviour {
     public float stopDistance;
 
     public GameObject gameController;
-    private GameObject globalPlayer;
+    public GameObject globalPlayer;
 
     private Rigidbody2D rb;
     private Vector2 moveAmount;
@@ -23,10 +23,10 @@ public class CharacterController : MonoBehaviour {
     public bool isPlayer;
     public bool isDistance;
 
-    public Transform attackUp;
-    public Transform attackDown;
-    public Transform attackLeft;
-    public Transform attackRight;
+    private Transform attackUp;
+    private Transform attackDown;
+    private Transform attackLeft;
+    private Transform attackRight;
 
     private float distanceUp;
     private float distanceDown;
@@ -35,6 +35,11 @@ public class CharacterController : MonoBehaviour {
 
     public Vector3 currentTarget;
 
+    public Sprite playerSprite;
+    public Sprite notPlayerSprite;
+
+    public float invulnerability;
+    private float nextAttack;
 
     void MoveTowardsTarget(Vector3 target)
     {
@@ -59,6 +64,15 @@ public class CharacterController : MonoBehaviour {
 
     protected virtual void Update()
     {
+        globalPlayer = gameController.GetComponent<PlayerInformation>().GetPlayer();
+        if (isPlayer)
+        {
+            GetComponent<SpriteRenderer>().sprite = playerSprite; 
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().sprite = notPlayerSprite;
+        }
 
         if (gameController.GetComponent<PlayerInformation>().IsSoulTime())
         {
@@ -76,38 +90,13 @@ public class CharacterController : MonoBehaviour {
         }
         else if(!isPlayer)
         {
-            globalPlayer = gameController.GetComponent<PlayerInformation>().GetPlayer();
             if (globalPlayer != null)
             {
-                if (isDistance)
-                {
-                    distanceUp = Vector2.Distance(transform.position, attackUp.position);
-                    distanceDown = Vector2.Distance(transform.position, attackDown.position);
-                    distanceRight = Vector2.Distance(transform.position, attackRight.position);
-                    distanceLeft = Vector2.Distance(transform.position, attackLeft.position);
-
-                    if (distanceUp < distanceDown && distanceUp < distanceLeft && distanceUp < distanceRight)
-                    {
-                        currentTarget = new Vector3(globalPlayer.transform.position.x, globalPlayer.transform.position.y - 1, globalPlayer.transform.position.z);
-                    }
-                    else if (distanceRight < distanceUp && distanceRight < distanceDown && distanceLeft > distanceRight)
-                    {
-                        currentTarget = new Vector3(globalPlayer.transform.position.x, globalPlayer.transform.position.y + 1, globalPlayer.transform.position.z);
-                    }
-                    else if (distanceDown < distanceUp && distanceDown < distanceLeft && distanceDown < distanceRight)
-                    {
-                        currentTarget = new Vector3(globalPlayer.transform.position.x - 1, globalPlayer.transform.position.y, globalPlayer.transform.position.z);
-                    }
-                    else
-                    {
-                        currentTarget = new Vector3(globalPlayer.transform.position.x + 1, globalPlayer.transform.position.y, globalPlayer.transform.position.z);
-                    }
-                }
-                else
+                if (Vector2.Distance(transform.position, globalPlayer.gameObject.transform.position) > stopDistance)
                 {
                     currentTarget = globalPlayer.transform.position;
+                    MoveTowardsTarget(currentTarget);
                 }
-                MoveTowardsTarget(currentTarget);
             }
         }
     }
@@ -120,13 +109,37 @@ public class CharacterController : MonoBehaviour {
         }
     }
 
+    IEnumerator Blink()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<SpriteRenderer>().enabled = true;
+    }
+
     public void TakeDamage(int damageAmount)
     {
-        health -= damageAmount;
-        if (health <= 0)
+        Debug.Log(damageAmount);
+        if (!isPlayer)
         {
-            Destroy(gameObject);
+            nextAttack = Time.deltaTime + invulnerability;
+            health -= damageAmount;
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
+            StartCoroutine(Blink());
         }
+        else
+        {
+            nextAttack = Time.deltaTime + invulnerability;
+            health -= damageAmount;
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
+            StartCoroutine(Blink());
+        }
+        
     }
 
     public void UpdateTag()

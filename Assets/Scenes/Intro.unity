@@ -235,7 +235,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 2c9dfe45c3ef6fc4d96d03015366acc2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -285,6 +285,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43cc15df8cfbef14490dbe65b3d661c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slides:
+  - {fileID: 21300000, guid: 2c9dfe45c3ef6fc4d96d03015366acc2, type: 3}
+  - {fileID: 21300000, guid: 3ed2333c284fec640a14a37b567898ed, type: 3}
+  - {fileID: 21300000, guid: 92f2a7709b6e7654ea65762b97dcafe9, type: 3}
+  - {fileID: 21300000, guid: fb1d0c5ee98f97d4cbc1ba0a7d71e86a, type: 3}
+  - {fileID: 21300000, guid: acc7a2fa938e7b44e8042ef5e5bb510d, type: 3}
+  timeSlide: 4
+  holder: {fileID: 1301889211}
+  index: 0
+  nextSlideTime: 0
 --- !u!81 &1420457934
 AudioListener:
   m_ObjectHideFlags: 0

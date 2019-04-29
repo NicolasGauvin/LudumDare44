@@ -37,7 +37,6 @@ public class GameController : MonoBehaviour {
     {
         player = GetPlayerInformation();
         StartCoroutine(StartWave(currentWaveIndex));
-        UpdateSoulBar();
     }
 
     IEnumerator StartWave(int i)
@@ -69,13 +68,28 @@ public class GameController : MonoBehaviour {
 
     public void UpdateSoulBar()
     {
+        Debug.Log(GetComponent<PlayerInformation>().IsSoulTime());
         if (GetComponent<PlayerInformation>().IsSoulTime())
         {
-            soulBar.GetComponent<Image>().sprite = soulBarStates[soulCount];
+            if (soulCount == 0)
+            {
+                soulBar.GetComponent<Image>().enabled = false;
+            }
+            else
+            {
+                soulBar.GetComponent<Image>().sprite = soulBarStates[soulCount];
+            }
         }
         else
         {
-            soulBar.GetComponent<Image>().sprite = soulBarStates[soulCount];
+            if (soulCount == 0)
+            {
+                soulBar.GetComponent<Image>().enabled = false;
+            }
+            else
+            {
+                soulBar.GetComponent<Image>().sprite = soulBarStatesSoulTime[soulCount];
+            }
         }
     }
 
@@ -95,8 +109,8 @@ public class GameController : MonoBehaviour {
     {
         if(GetComponent<PlayerInformation>().IsSoulTime())
         {
-            isTimeSlowed = false;
             GetComponent<PlayerInformation>().UpdateSoulTime();
+            UpdateSoulBar();
         }
     }
 
@@ -117,8 +131,8 @@ public class GameController : MonoBehaviour {
             if (Input.GetKey("a") && soulCount > 0)
             {
                 soulCount--;
-                UpdateSoulBar();
                 GetComponent<PlayerInformation>().UpdateSoulTime();
+                UpdateSoulBar();
                 Invoke("ResetTimeScale", soulTime);
                 player = GetPlayerInformation();
                 Instantiate(soul, player.transform.position, player.transform.rotation);

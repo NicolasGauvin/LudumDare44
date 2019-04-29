@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8291137058274790065}
   - component: {fileID: 8291137058274790067}
   - component: {fileID: 3575441776455679245}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,9 +94,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  lifeTime: 2
-  damage: 5
+  lifeTime: 0.5
+  damage: 3
+  spawnTime: 0
   defenseTime: 0.35
+  origin: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!61 &3575441776455679245
 BoxCollider2D:
   m_ObjectHideFlags: 0

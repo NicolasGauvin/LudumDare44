@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578061786}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Attack-Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 634603282}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Attack-Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1443044047}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Attack-Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1759987578}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Attack-Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,6 +120,36 @@ Transform:
   m_Father: {fileID: 5271299575505414324}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1174891255716329416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2317247934226886703}
+  m_Layer: 10
+  m_Name: ShotPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2317247934226886703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174891255716329416}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5271299576247301997}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5271299575505414315
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5271299575505414324}
   - component: {fileID: 5271299575505414325}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5271299575528724127}
   - component: {fileID: 5271299575528724120}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +323,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5271299575761249672}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawner 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5271299575824857523}
   - component: {fileID: 5271299575824857532}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +433,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5271299576073084577}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawner 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +468,7 @@ GameObject:
   - component: {fileID: 5271299576247301998}
   - component: {fileID: 5271299576247301987}
   - component: {fileID: 5271299576247301996}
-  m_Layer: 1
+  m_Layer: 10
   m_Name: Archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,6 +491,7 @@ Transform:
   - {fileID: 5271299575824857523}
   - {fileID: 5271299577375442152}
   - {fileID: 5271299575505414324}
+  - {fileID: 2317247934226886703}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -477,19 +508,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OriginalSpeed: 1
-  health: 3
-  stopDistance: 1
+  health: 12
+  stopDistance: 1.5
   gameController: {fileID: 0}
+  globalPlayer: {fileID: 0}
   cooldown: 1
   attackDuration: 0.6
   attackTime: 0
   isPlayer: 0
   isDistance: 1
-  attackUp: {fileID: 634603282}
-  attackDown: {fileID: 578061786}
-  attackLeft: {fileID: 1759987578}
-  attackRight: {fileID: 1443044047}
   currentTarget: {x: 0, y: 0, z: 0}
+  playerSprite: {fileID: 21300000, guid: ba69b6f6fcf7a564c9939acf9daf311d, type: 3}
+  notPlayerSprite: {fileID: 21300000, guid: 0b45dbabf1abff64e808f2faeaaebe14, type: 3}
+  invulnerability: 1000
   weapon: {fileID: 5271299575528724127}
   upSource: {fileID: 5271299576356459740}
   downSource: {fileID: 5271299575824857523}
@@ -501,6 +532,9 @@ MonoBehaviour:
   spawner4: {fileID: 5271299576073084577}
   spawner5: {fileID: 5271299577371669629}
   arrow: {fileID: 8291137058274790078, guid: 6544b888a21cd7d4dab8b86a8892ff3f, type: 3}
+  ennemyArrow: {fileID: 2321019475449418504, guid: b290f2cbd19428140a8a1107ecdbec57,
+    type: 3}
+  shotPoint: {fileID: 2317247934226886703}
 --- !u!50 &5271299576247301985
 Rigidbody2D:
   serializedVersion: 4
@@ -625,7 +659,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5271299576356459740}
   - component: {fileID: 5271299576356459741}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -704,7 +738,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5271299576794873250}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawner 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -734,7 +768,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5271299577204575330}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawner 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -764,7 +798,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5271299577371669629}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawner 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -795,7 +829,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5271299577375442152}
   - component: {fileID: 5271299577375442153}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}

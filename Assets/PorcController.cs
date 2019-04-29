@@ -9,6 +9,7 @@ public class PorcController : CharacterController
     public Transform downSource;
     public Transform leftSource;
     public Transform rightSource;
+    public int damage;
 
     private void Power()
     {
@@ -23,34 +24,43 @@ public class PorcController : CharacterController
     protected override void Update()
     {
         base.Update();
-
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+        if (isPlayer)
         {
-            if (isPlayer && Time.time >= attackTime)
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
             {
-                attackTime = Time.time + cooldown;
-                HideWeapon();
-                if (Input.GetKeyDown(KeyCode.UpArrow))
+                if (isPlayer && Time.time >= attackTime)
                 {
-                    weapon.position = upSource.position;
-                    weapon.eulerAngles = new Vector3(0, 0, -90);
+                    attackTime = Time.time + cooldown;
+                    HideWeapon();
+                    if (Input.GetKeyDown(KeyCode.UpArrow))
+                    {
+                        weapon.position = upSource.position;
+                        weapon.eulerAngles = new Vector3(0, 0, -90);
+                    }
+                    else if (Input.GetKeyDown(KeyCode.DownArrow))
+                    {
+                        weapon.position = downSource.position;
+                        weapon.eulerAngles = new Vector3(0, 0, 90);
+                    }
+                    else if (Input.GetKeyDown(KeyCode.LeftArrow))
+                    {
+                        weapon.position = leftSource.position;
+                        weapon.eulerAngles = new Vector3(0, 0, 0);
+                    }
+                    else if (Input.GetKeyDown(KeyCode.RightArrow))
+                    {
+                        weapon.position = rightSource.position;
+                        weapon.eulerAngles = new Vector3(0, 0, 180);
+                    }
+                    Invoke("HideWeapon", attackDuration);
                 }
-                else if (Input.GetKeyDown(KeyCode.DownArrow))
-                {
-                    weapon.position = downSource.position;
-                    weapon.eulerAngles = new Vector3(0, 0, 90);
-                }
-                else if (Input.GetKeyDown(KeyCode.LeftArrow))
-                {
-                    weapon.position = leftSource.position;
-                    weapon.eulerAngles = new Vector3(0, 0, 0);
-                }
-                else if (Input.GetKeyDown(KeyCode.RightArrow))
-                {
-                    weapon.position = rightSource.position;
-                    weapon.eulerAngles = new Vector3(0, 0, 180);
-                }
-                Invoke("HideWeapon", attackDuration);
+            }
+        }
+        else
+        {
+            if (Vector2.Distance(transform.position, globalPlayer.gameObject.transform.position) < stopDistance && Time.time >= attackTime && !gameController.GetComponent<PlayerInformation>().IsSoulTime())
+            {
+               globalPlayer.GetComponent<CharacterController>().TakeDamage(damage);
             }
         }
     }

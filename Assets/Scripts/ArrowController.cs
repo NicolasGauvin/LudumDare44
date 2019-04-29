@@ -6,16 +6,21 @@ public class ArrowController : MonoBehaviour
 {
 
     public float speed;
+    private float newSpeed;
     public float lifeTime;
     public int damage;
-    private float spawnTime;
+    public float spawnTime;
     public float defenseTime;
+    public GameObject origin;
+    private int touchCount;
+    public GameObject gameController;
 
     // Start is called before the first frame update
     void Start()
     {
         Invoke("DestroyProjectile", lifeTime);
         spawnTime = Time.deltaTime;
+        gameController = GameObject.Find("GameController");
     }
 
     void DestroyProjectile()
@@ -26,18 +31,24 @@ public class ArrowController : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
+        if (gameController.GetComponent<PlayerInformation>().IsSoulTime())
+        {
+            newSpeed = speed * 0.1f;
+        }
+        else
+        {
+            newSpeed = speed;
+        }
+        transform.Translate(Vector2.left * newSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision);
         if (collision.tag == "Untagged")
         {
-            if (Time.deltaTime > spawnTime + defenseTime)
-            {
                 DestroyProjectile();
-                collision.GetComponent<CharacterController>().TakeDamage(2);
-            }
+                collision.GetComponent<CharacterController>().TakeDamage(damage);
         }else if (collision.tag == "Terrain")
         {
             DestroyProjectile();
