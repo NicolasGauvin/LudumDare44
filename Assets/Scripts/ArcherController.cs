@@ -68,17 +68,22 @@ public class ArcherController : CharacterController
         }
         else
         {
-            if (Time.time >= attackTime)
-            {
-                attackTime = Time.time + cooldown;
-                HideWeapon();
-                weapon.position = leftSource.position;
-                weapon.eulerAngles = new Vector3(0, 0, 0);
-                Instantiate(arrow, spawner3.position, weapon.rotation);
-                Invoke("HideWeapon", attackDuration);
-            }
+            
         }
         
+    }
+
+    public void ComputerAttack()
+    {
+        if (Time.time >= attackTime)
+        {
+            attackTime = Time.time + cooldown;
+            HideWeapon();
+            weapon.position = leftSource.position;
+            weapon.eulerAngles = new Vector3(0, 0, 0);
+            Instantiate(arrow, spawner3.position, weapon.rotation);
+            Invoke("HideWeapon", attackDuration);
+        }
     }
 
     private void HideWeapon()
