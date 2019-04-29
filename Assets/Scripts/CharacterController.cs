@@ -5,7 +5,8 @@ using System.Linq;
 
 public class CharacterController : MonoBehaviour {
 
-    public float speed;
+    private float speed;
+    public float OriginalSpeed;
     public float health;
     public float stopDistance;
 
@@ -43,6 +44,7 @@ public class CharacterController : MonoBehaviour {
     protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        gameController = GameObject.Find("GameController");
     }
 
     private int CompareByX(Transform t1, Transform t2)
@@ -57,6 +59,16 @@ public class CharacterController : MonoBehaviour {
 
     protected virtual void Update()
     {
+
+        if (gameController.GetComponent<PlayerInformation>().IsSoulTime())
+        {
+            speed = OriginalSpeed * 0.1f;
+        }
+        else
+        {
+            speed = OriginalSpeed;
+        }
+
         if (isPlayer && !gameController.GetComponent<PlayerInformation>().IsSoulTime())
         {
             Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
