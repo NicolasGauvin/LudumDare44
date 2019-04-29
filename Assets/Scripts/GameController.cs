@@ -1,17 +1,82 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
     private bool isTimeSlowed;
     public int soulTime;
+    public int soulCount;
 
     public static GameObject player;
+
+    public Image soulBar;
+    public Sprite[] soulBarStates;
+    public Sprite[] soulBarStatesSoulTime;
+
+    public GameObject soul;
+
+    [System.Serializable]
+    public class Wave
+    {
+        public GameObject[] enemies;
+        public int count;
+        public float timeBetweenSpawns;
+    }
+
+    public Wave[] waves;
+    public Transform[] spawnPoints;
+
+    public float timeBetweenWaves;
+
+    private Wave currentWave;
+    private int currentWaveIndex;
 
     void Start()
     {
         player = GetPlayerInformation();
+        StartCoroutine(StartWave(currentWaveIndex));
+        UpdateSoulBar();
+    }
+
+    IEnumerator StartWave(int i)
+    {
+        yield return new WaitForSeconds(timeBetweenWaves);
+        StartCoroutine(SpawnWave(i));
+    }
+
+    IEnumerator SpawnWave(int i)
+    {
+        currentWave = waves[i];
+
+        for (int a = 0; a < currentWave.count; a++)
+        {
+            if(player == null)
+            {
+                yield break;
+            }
+
+            GameObject randomEnemy = currentWave.enemies[Random.Range(0, currentWave.enemies.Length)];
+            Transform randomSpot = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            Instantiate(randomEnemy, randomSpot.position, randomSpot.rotation);
+
+            yield return new WaitForSeconds(currentWave.timeBetweenSpawns);
+
+        }
+
+    }
+
+    public void UpdateSoulBar()
+    {
+        if (GetComponent<PlayerInformation>().IsSoulTime())
+        {
+            soulBar.GetComponent<Image>().sprite = soulBarStates[soulCount];
+        }
+        else
+        {
+            soulBar.GetComponent<Image>().sprite = soulBarStates[soulCount];
+        }
     }
 
     public void GameEnd(bool isWon)
@@ -28,9 +93,8 @@ public class GameController : MonoBehaviour {
 
     public void ResetTimeScale()
     {
-        if(isTimeSlowed == true)
+        if(GetComponent<PlayerInformation>().IsSoulTime())
         {
-            Time.timeScale = 1.0f;
             isTimeSlowed = false;
             GetComponent<PlayerInformation>().UpdateSoulTime();
         }
@@ -46,40 +110,22 @@ public class GameController : MonoBehaviour {
         return isTimeSlowed;
     }
 
-    private void SwapCharacters(GameObject target)
-    {
-        target.GetComponent<CharacterController>().UpdateIsPlayer();
-        target.GetComponent<CharacterController>().UpdateTag();
-    }
-
     void Update()
     {
-        if (isTimeSlowed == false)
+        if (!GetComponent<PlayerInformation>().IsSoulTime())
         {
-            if (Input.GetKey("a"))
+            if (Input.GetKey("a") && soulCount > 0)
             {
-                isTimeSlowed = true;
+                soulCount--;
+                UpdateSoulBar();
                 GetComponent<PlayerInformation>().UpdateSoulTime();
-                Time.timeScale = 0.1f;
-                Invoke("ResetTimeScale", soulTime * 0.5f);
-                //player.GetComponent<CharacterController>().UpdateIsPlayer();
-                //player.GetComponent<CharacterController>().UpdateTag();
-            }
-        }
-        else
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-
-                RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-                if (hit.collider != null)
-                {
-                    Debug.Log(hit.collider.gameObject.name);
-                    SwapCharacters(hit.collider.gameObject);
-                }
+                Invoke("ResetTimeScale", soulTime);
+                player = GetPlayerInformation();
+                Instantiate(soul, player.transform.position, player.transform.rotation);
             }
         }
     }
+
+
+
 }

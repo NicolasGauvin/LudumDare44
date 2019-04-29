@@ -19,4 +19,14 @@ public class PlayerInformation : MonoBehaviour {
         isTimeSlowed = !isTimeSlowed;
     }
 
+    public void SwapCharacters(GameObject target)
+    {
+        GameObject player = GetPlayer();
+
+        target.GetComponent<CharacterController>().UpdateIsPlayer();
+        target.GetComponent<CharacterController>().UpdateTag();
+        player.GetComponent<CharacterController>().UpdateIsPlayer();
+        player.GetComponent<CharacterController>().UpdateTag();
+    }
+
 }
