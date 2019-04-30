@@ -12,6 +12,10 @@ public class GameController : MonoBehaviour {
     public static GameObject player;
 
     public Image soulBar;
+
+    public Image Defeat;
+    public Image Victory;
+
     public Sprite[] soulBarStates;
     public Sprite[] soulBarStatesSoulTime;
 
@@ -31,23 +35,23 @@ public class GameController : MonoBehaviour {
     public float timeBetweenWaves;
 
     private Wave currentWave;
-    private int currentWaveIndex;
+    public int currentWaveIndex;
+    private int killCount;
 
     void Start()
     {
         player = GetPlayerInformation();
-        StartCoroutine(StartWave(currentWaveIndex));
-    }
-
-    IEnumerator StartWave(int i)
-    {
-        yield return new WaitForSeconds(timeBetweenWaves);
-        StartCoroutine(SpawnWave(i));
+        StartCoroutine(SpawnWave(currentWaveIndex));
+        currentWaveIndex++;
     }
 
     IEnumerator SpawnWave(int i)
     {
+
+        yield return new WaitForSeconds(timeBetweenWaves);
+        killCount = 0;
         currentWave = waves[i];
+        
 
         for (int a = 0; a < currentWave.count; a++)
         {
@@ -59,7 +63,6 @@ public class GameController : MonoBehaviour {
             GameObject randomEnemy = currentWave.enemies[Random.Range(0, currentWave.enemies.Length)];
             Transform randomSpot = spawnPoints[Random.Range(0, spawnPoints.Length)];
             Instantiate(randomEnemy, randomSpot.position, randomSpot.rotation);
-
             yield return new WaitForSeconds(currentWave.timeBetweenSpawns);
 
         }
@@ -124,8 +127,23 @@ public class GameController : MonoBehaviour {
         return isTimeSlowed;
     }
 
+    public void VictoryScreen()
+    {
+        Victory.GetComponent<Image>().enabled = true;
+    }
+
+    public void DefeatScreen()
+    {
+        Defeat.GetComponent<Image>().enabled = true;
+    }
+
     void Update()
     {
+        if (GetComponent<PlayerInformation>().IsGameOver())
+        {
+            DefeatScreen();
+        }
+
         if (!GetComponent<PlayerInformation>().IsSoulTime())
         {
             if (Input.GetKey("a") && soulCount > 0)
@@ -138,6 +156,20 @@ public class GameController : MonoBehaviour {
                 Instantiate(soul, player.transform.position, player.transform.rotation);
             }
         }
+
+        if(GetComponent<PlayerInformation>().GetKillCount() == currentWave.count)
+        {
+            GetComponent<PlayerInformation>().ResetKillCount();
+            StartCoroutine(SpawnWave(currentWaveIndex));
+            currentWaveIndex++;
+            /*
+            if (currentWaveIndex == 4)
+            {
+                VictoryScreen();
+            }
+            */
+        }
+
     }
 
 
