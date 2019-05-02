@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -96,18 +97,6 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    public void GameEnd(bool isWon)
-    {
-        if (isWon)
-        {
-            Debug.Log("Game is won");
-        }
-        else
-        {
-            Debug.Log("Game is lost");
-        }
-    }
-
     public void ResetTimeScale()
     {
         if(GetComponent<PlayerInformation>().IsSoulTime())
@@ -168,6 +157,11 @@ public class GameController : MonoBehaviour {
                 VictoryScreen();
             }
             */
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene("Scene1");
         }
 
     }
