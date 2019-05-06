@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
-    private bool isTimeSlowed;
+    private bool isSoulTime;
     public int soulTime;
     public int soulCount;
 
@@ -40,6 +40,7 @@ public class GameController : MonoBehaviour {
         player = GetPlayerInformation();
         currentWave = waves[0];
         StartCoroutine(SpawnWave(currentWaveIndex));
+        UpdateSoulBar();
     }
 
     IEnumerator SpawnWave(int i)
@@ -67,27 +68,20 @@ public class GameController : MonoBehaviour {
 
     public void UpdateSoulBar()
     {
-        if (GetComponent<PlayerInformation>().IsSoulTime())
+        if (soulCount > 0)
         {
-            if (soulCount == 0)
-            {
-                soulBar.GetComponent<Image>().enabled = false;
-            }
-            else
+            if (GetComponent<PlayerInformation>().IsSoulTime())
             {
                 soulBar.GetComponent<Image>().sprite = soulBarStates[soulCount];
-            }
-        }
-        else
-        {
-            if (soulCount == 0)
-            {
-                soulBar.GetComponent<Image>().enabled = false;
             }
             else
             {
                 soulBar.GetComponent<Image>().sprite = soulBarStatesSoulTime[soulCount];
             }
+        }
+        else
+        {
+            soulBar.GetComponent<Image>().enabled = false;
         }
     }
 
@@ -105,11 +99,6 @@ public class GameController : MonoBehaviour {
         return GameObject.FindWithTag("Player");
     }
 
-    public bool IsSoulTime()
-    {
-        return isTimeSlowed;
-    }
-
     public void VictoryScreen()
     {
         Victory.GetComponent<Image>().enabled = true;
@@ -122,38 +111,37 @@ public class GameController : MonoBehaviour {
 
     void Update()
     {
+        UpdateSoulBar();
+
         if (GetComponent<PlayerInformation>().IsGameOver())
         {
             Debug.Log("over");
             DefeatScreen();
         }
 
-        if (!GetComponent<PlayerInformation>().IsSoulTime())
+        if (GetComponent<PlayerInformation>().IsSoulTime() == false)
         {
             if (Input.GetKey("a") && soulCount > 0)
             {
                 soulCount--;
                 GetComponent<PlayerInformation>().UpdateSoulTime();
-                UpdateSoulBar();
                 Invoke("ResetTimeScale", soulTime);
                 player = GetPlayerInformation();
                 Instantiate(soul, player.transform.position, player.transform.rotation);
             }
+
         }
 
         if(GetComponent<PlayerInformation>().GetKillCount() == currentWave.enemies.Length)
         {
-            Debug.Log("wave done");
             GetComponent<PlayerInformation>().ResetKillCount();
             currentWaveIndex++;
             if (currentWaveIndex == waves.Length)
             {
-                Debug.Log("DONE");
                 VictoryScreen();
             }
             else
             {
-                Debug.Log("next");
                 StartCoroutine(SpawnWave(currentWaveIndex));
             }
         }
