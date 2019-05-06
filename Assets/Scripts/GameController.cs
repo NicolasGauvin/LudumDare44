@@ -44,6 +44,7 @@ public class GameController : MonoBehaviour {
         player = GetPlayerInformation();
         StartCoroutine(SpawnWave(currentWaveIndex));
         currentWaveIndex++;
+        currentWave = waves[0];
     }
 
     IEnumerator SpawnWave(int i)
@@ -51,7 +52,6 @@ public class GameController : MonoBehaviour {
 
         yield return new WaitForSeconds(timeBetweenWaves);
         killCount = 0;
-        currentWave = waves[i];
         
 
         for (int a = 0; a < currentWave.count; a++)
@@ -151,6 +151,7 @@ public class GameController : MonoBehaviour {
             GetComponent<PlayerInformation>().ResetKillCount();
             StartCoroutine(SpawnWave(currentWaveIndex));
             currentWaveIndex++;
+            currentWave = waves[currentWaveIndex];
             /*
             if (currentWaveIndex == 4)
             {
