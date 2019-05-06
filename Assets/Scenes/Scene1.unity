@@ -3678,7 +3678,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1160218247
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3687,7 +3687,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160218246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1871328119}
@@ -4022,22 +4022,7 @@ MonoBehaviour:
   waves:
   - enemies:
     - {fileID: 5271299576247301984, guid: cb70847beccec0246abdac566da40477, type: 3}
-    count: 1
     timeBetweenSpawns: 2
-  - enemies:
-    - {fileID: 1532410705835793426, guid: 3724322fbf8be774f96604646b22619c, type: 3}
-    - {fileID: 5271299576247301984, guid: cb70847beccec0246abdac566da40477, type: 3}
-    count: 3
-    timeBetweenSpawns: 1
-  - enemies:
-    - {fileID: 1532410705835793426, guid: 3724322fbf8be774f96604646b22619c, type: 3}
-    count: 4
-    timeBetweenSpawns: 1
-  - enemies:
-    - {fileID: 1532410705835793426, guid: 3724322fbf8be774f96604646b22619c, type: 3}
-    - {fileID: 5271299576247301984, guid: cb70847beccec0246abdac566da40477, type: 3}
-    count: 5
-    timeBetweenSpawns: 1
   spawnPoints:
   - {fileID: 1984384709}
   - {fileID: 101548537}

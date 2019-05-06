@@ -26,15 +26,11 @@ public class GameController : MonoBehaviour {
     public class Wave
     {
         public GameObject[] enemies;
-        public int count;
         public float timeBetweenSpawns;
     }
-
     public Wave[] waves;
     public Transform[] spawnPoints;
-
     public float timeBetweenWaves;
-
     private Wave currentWave;
     public int currentWaveIndex;
     private int killCount;
@@ -42,28 +38,27 @@ public class GameController : MonoBehaviour {
     void Start()
     {
         player = GetPlayerInformation();
-        StartCoroutine(SpawnWave(currentWaveIndex));
-        currentWaveIndex++;
         currentWave = waves[0];
+        StartCoroutine(SpawnWave(currentWaveIndex));
     }
 
     IEnumerator SpawnWave(int i)
     {
 
         yield return new WaitForSeconds(timeBetweenWaves);
-        killCount = 0;
-        
+        currentWave = waves[currentWaveIndex];
 
-        for (int a = 0; a < currentWave.count; a++)
+
+        for (int a = 0; a < currentWave.enemies.Length; a++)
         {
             if(player == null)
             {
                 yield break;
             }
 
-            GameObject randomEnemy = currentWave.enemies[Random.Range(0, currentWave.enemies.Length)];
+            GameObject enemy = currentWave.enemies[a];
             Transform randomSpot = spawnPoints[Random.Range(0, spawnPoints.Length)];
-            Instantiate(randomEnemy, randomSpot.position, randomSpot.rotation);
+            Instantiate(enemy, randomSpot.position, randomSpot.rotation);
             yield return new WaitForSeconds(currentWave.timeBetweenSpawns);
 
         }
@@ -72,7 +67,6 @@ public class GameController : MonoBehaviour {
 
     public void UpdateSoulBar()
     {
-        Debug.Log(GetComponent<PlayerInformation>().IsSoulTime());
         if (GetComponent<PlayerInformation>().IsSoulTime())
         {
             if (soulCount == 0)
@@ -130,6 +124,7 @@ public class GameController : MonoBehaviour {
     {
         if (GetComponent<PlayerInformation>().IsGameOver())
         {
+            Debug.Log("over");
             DefeatScreen();
         }
 
@@ -146,18 +141,21 @@ public class GameController : MonoBehaviour {
             }
         }
 
-        if(GetComponent<PlayerInformation>().GetKillCount() == currentWave.count)
+        if(GetComponent<PlayerInformation>().GetKillCount() == currentWave.enemies.Length)
         {
+            Debug.Log("wave done");
             GetComponent<PlayerInformation>().ResetKillCount();
-            StartCoroutine(SpawnWave(currentWaveIndex));
             currentWaveIndex++;
-            currentWave = waves[currentWaveIndex];
-            /*
-            if (currentWaveIndex == 4)
+            if (currentWaveIndex == waves.Length)
             {
+                Debug.Log("DONE");
                 VictoryScreen();
             }
-            */
+            else
+            {
+                Debug.Log("next");
+                StartCoroutine(SpawnWave(currentWaveIndex));
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Space))

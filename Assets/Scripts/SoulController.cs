@@ -37,7 +37,6 @@ public class SoulController : MonoBehaviour
     {
         if (collision.tag == "Untagged")
         {
-            Debug.Log(collision.gameObject.GetType());
             gameController.GetComponent<PlayerInformation>().SwapCharacters(collision.gameObject);
             Destroy(gameObject);
             gameController.GetComponent<PlayerInformation>().UpdateSoulTime();

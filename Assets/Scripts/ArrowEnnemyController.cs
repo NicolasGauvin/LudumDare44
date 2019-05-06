@@ -34,7 +34,6 @@ public class ArrowEnnemyController : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Debug.Log(collision);
             DestroyProjectile();
             collision.GetComponent<CharacterController>().TakeDamage(damage);
         }

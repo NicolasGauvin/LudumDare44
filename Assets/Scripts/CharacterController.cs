@@ -120,18 +120,16 @@ public class CharacterController : MonoBehaviour {
     {
         if (!isPlayer)
         {
-            nextAttack = Time.deltaTime + invulnerability;
             health -= damageAmount;
             if (health <= 0)
             {
-                Destroy(gameObject);
                 gameController.GetComponent<PlayerInformation>().UpdateKillCount();
+                Destroy(gameObject);
             }
             StartCoroutine(Blink());
         }
         else
         {
-            nextAttack = Time.deltaTime + invulnerability;
             health -= damageAmount;
             if (health <= 0)
             {
