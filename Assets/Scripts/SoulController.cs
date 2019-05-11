@@ -33,14 +33,17 @@ public class SoulController : MonoBehaviour
        rb.MovePosition(rb.position + moveAmount * Time.fixedDeltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.tag == "Untagged")
+        Debug.Log(collision.gameObject);
+        
+        if (collision.gameObject.tag == "Untagged")
         {
             gameController.GetComponent<PlayerInformation>().SwapCharacters(collision.gameObject);
             Destroy(gameObject);
             gameController.GetComponent<PlayerInformation>().UpdateSoulTime();
         }
+        
     }
 
 }

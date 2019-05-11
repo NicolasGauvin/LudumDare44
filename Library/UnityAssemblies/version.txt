@@ -66,12 +66,10 @@ C:/Program Files/Unity/Hub/Editor/2019.1.2f1/Editor/Data/Managed/UnityEditor.Gra
 C:/Program Files/Unity/Hub/Editor/2019.1.2f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll
 C:/Program Files/Unity/Hub/Editor/2019.1.2f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll
-C:/Users/Nicolas Gauvin/Documents/Unity Projects/LudumDare44/Library/PackageCache/com.unity.ads@2.0.8/UnityEngine.Advertisements.dll
 C:/Users/Nicolas Gauvin/Documents/Unity Projects/LudumDare44/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll
 C:/Users/Nicolas Gauvin/Documents/Unity Projects/LudumDare44/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll
 C:/Users/Nicolas Gauvin/Documents/Unity Projects/LudumDare44/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll
 C:/Users/Nicolas Gauvin/Documents/Unity Projects/LudumDare44/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll
-C:/Users/Nicolas Gauvin/Documents/Unity Projects/LudumDare44/Library/PackageCache/com.unity.purchasing@2.0.6/UnityEngine.Purchasing.dll
 C:/Users/Nicolas Gauvin/Documents/Unity Projects/LudumDare44/Library/PackageCache/com.unity.purchasing@2.0.6/Editor/UnityEditor.Purchasing.dll
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\Microsoft.Win32.Primitives.dll

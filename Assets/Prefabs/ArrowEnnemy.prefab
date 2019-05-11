@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2321019475449418503}
   - component: {fileID: 4674288255620690166}
   - component: {fileID: 7114392777791481019}
+  - component: {fileID: 7677890400518696198}
   m_Layer: 11
   m_Name: ArrowEnnemy
   m_TagString: Untagged
@@ -94,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  lifeTime: 0.5
+  lifeTime: 1.5
   damage: 3
   spawnTime: 0
   defenseTime: 0.35
@@ -125,3 +126,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.04, y: 0.03}
   m_EdgeRadius: 0
+--- !u!50 &7677890400518696198
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2321019475449418504}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
