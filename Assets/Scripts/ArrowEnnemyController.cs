@@ -37,7 +37,7 @@ public class ArrowEnnemyController : MonoBehaviour
             DestroyProjectile();
             collision.GetComponent<CharacterController>().TakeDamage(damage);
         }
-        else if (collision.tag == "Terrain")
+        else if (collision.tag == "terrain")
         {
             DestroyProjectile();
         }

@@ -115,7 +115,6 @@ public class GameController : MonoBehaviour {
 
         if (GetComponent<PlayerInformation>().IsGameOver())
         {
-            Debug.Log("over");
             DefeatScreen();
         }
 
