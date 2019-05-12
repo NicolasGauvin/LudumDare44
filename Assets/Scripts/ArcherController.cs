@@ -18,7 +18,6 @@ public class ArcherController : CharacterController
     public Transform spawner5;
 
     public GameObject arrow;
-    public GameObject ennemyArrow;
 
     public Transform shotPoint;
 
@@ -36,7 +35,7 @@ public class ArcherController : CharacterController
     {
         base.Update();
 
-        if (isPlayer)
+        if (isPlayer && !gameController.GetComponent<PlayerInformation>().IsSoulTime())
         {
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
             {
@@ -64,7 +63,8 @@ public class ArcherController : CharacterController
                         weapon.position = rightSource.position;
                         weapon.eulerAngles = new Vector3(0, 0, 180);
                     }
-                    Instantiate(arrow, spawner3.position, weapon.rotation);
+                    GameObject arrowObject =  Instantiate(arrow, spawner3.position, weapon.rotation);
+                    arrowObject.GetComponent<ArrowController>().origin = gameObject;
                     Invoke("HideWeapon", attackDuration);
                 }
             }
@@ -78,7 +78,8 @@ public class ArcherController : CharacterController
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 Quaternion rotation = Quaternion.AngleAxis(angle - 180, Vector3.forward);
                 shotPoint.rotation = rotation;
-                Instantiate(ennemyArrow, shotPoint.position, shotPoint.rotation);
+                GameObject arrowObject = Instantiate(arrow, shotPoint.position, shotPoint.rotation);
+                arrowObject.GetComponent<ArrowController>().origin = gameObject;
             }
         }
     }

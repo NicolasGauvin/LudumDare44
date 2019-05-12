@@ -15,12 +15,12 @@ public class ArrowController : MonoBehaviour
     private int touchCount;
     public GameObject gameController;
 
-    // Start is called before the first frame update
     void Start()
     {
         Invoke("DestroyProjectile", lifeTime);
         spawnTime = Time.deltaTime;
         gameController = GameObject.Find("GameController");
+        Debug.Log(origin);
     }
 
     void DestroyProjectile()
@@ -44,14 +44,17 @@ public class ArrowController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
-        if (collision.tag == "Untagged")
+        if (collision.gameObject != origin)
         {
+            if (collision.tag == "Untagged" || collision.tag == "Player")
+            {
                 DestroyProjectile();
                 collision.GetComponent<CharacterController>().TakeDamage(damage);
-        }else if (collision.tag == "terrain")
-        {
-            DestroyProjectile();
+            }
+            else if (collision.tag == "terrain")
+            {
+                DestroyProjectile();
+            }
         }
     }
 }

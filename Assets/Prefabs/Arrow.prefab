@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2375627186773841808}
   m_Layer: 11
   m_Name: Arrow
-  m_TagString: Untagged
+  m_TagString: projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcdd08168c92f84e8887fbd222ed701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   lifeTime: 0.5
   damage: 3
   spawnTime: 0
