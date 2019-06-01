@@ -94,11 +94,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcdd08168c92f84e8887fbd222ed701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   lifeTime: 0.5
   damage: 3
   spawnTime: 0
-  defenseTime: 0.35
   origin: {fileID: 0}
   gameController: {fileID: 0}
 --- !u!61 &3575441776455679245

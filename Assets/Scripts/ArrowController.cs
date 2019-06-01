@@ -4,28 +4,18 @@ using UnityEngine;
 
 public class ArrowController : MonoBehaviour
 {
-
     public float speed;
     private float newSpeed;
     public float lifeTime;
     public int damage;
     public float spawnTime;
-    public float defenseTime;
     public GameObject origin;
-    private int touchCount;
     public GameObject gameController;
 
     void Start()
     {
-        Invoke("DestroyProjectile", lifeTime);
         spawnTime = Time.deltaTime;
         gameController = GameObject.Find("GameController");
-        Debug.Log(origin);
-    }
-
-    void DestroyProjectile()
-    {
-        Destroy(gameObject);
     }
 
 
@@ -48,12 +38,12 @@ public class ArrowController : MonoBehaviour
         {
             if (collision.tag == "Untagged" || collision.tag == "Player")
             {
-                DestroyProjectile();
+                Destroy(gameObject);
                 collision.GetComponent<CharacterController>().TakeDamage(damage);
             }
             else if (collision.tag == "terrain")
             {
-                DestroyProjectile();
+                Destroy(gameObject);
             }
         }
     }

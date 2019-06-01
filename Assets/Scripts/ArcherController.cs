@@ -71,15 +71,18 @@ public class ArcherController : CharacterController
         }
         else
         {
-            if (Vector2.Distance(transform.position, globalPlayer.gameObject.transform.position) < stopDistance && Time.time >= attackTime && !gameController.GetComponent<PlayerInformation>().IsSoulTime())
+            if(globalPlayer != null)
             {
-                attackTime = Time.time + cooldown;
-                Vector2 direction = globalPlayer.gameObject.transform.position - shotPoint.position;
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                Quaternion rotation = Quaternion.AngleAxis(angle - 180, Vector3.forward);
-                shotPoint.rotation = rotation;
-                GameObject arrowObject = Instantiate(arrow, shotPoint.position, shotPoint.rotation);
-                arrowObject.GetComponent<ArrowController>().origin = gameObject;
+                if (Vector2.Distance(transform.position, globalPlayer.gameObject.transform.position) < stopDistance && Time.time >= attackTime && !gameController.GetComponent<PlayerInformation>().IsSoulTime())
+                {
+                    attackTime = Time.time + cooldown;
+                    Vector2 direction = globalPlayer.gameObject.transform.position - shotPoint.position;
+                    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                    Quaternion rotation = Quaternion.AngleAxis(angle - 180, Vector3.forward);
+                    shotPoint.rotation = rotation;
+                    GameObject arrowObject = Instantiate(arrow, shotPoint.position, shotPoint.rotation);
+                    arrowObject.GetComponent<ArrowController>().origin = gameObject;
+                }
             }
         }
     }

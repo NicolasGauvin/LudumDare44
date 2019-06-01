@@ -1,5 +1,5 @@
 2019.1.2f1:3.3.0.2
-WebGL
+StandaloneWindows
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.AIModule.dll
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.ARModule.dll
@@ -8,6 +8,8 @@ C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEngine/Uni
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.AssetBundleModule.dll
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.AudioModule.dll
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.ClothModule.dll
+C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.ClusterInputModule.dll
+C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.CoreModule.dll
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.CrashReportingModule.dll
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.DirectorModule.dll
@@ -54,7 +56,6 @@ C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEngine/Uni
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.VRModule.dll
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.VehiclesModule.dll
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.VideoModule.dll
-C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\PlaybackEngines\WebGLSupport/Managed/UnityEngine.WebGLModule.dll
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.WindModule.dll
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.XRModule.dll
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEditor.dll
@@ -186,8 +187,6 @@ C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\NetStandard\compat\2.0.
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Xml.dll
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Xml.Linq.dll
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Xml.Serialization.dll
-C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.ClusterInputModule.dll
-C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.dll
 C:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.Core.dll

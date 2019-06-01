@@ -96,6 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameController: {fileID: 0}
   speed: 3
+  waitTime: 0.01
 --- !u!61 &3609365652582262915
 BoxCollider2D:
   m_ObjectHideFlags: 0
