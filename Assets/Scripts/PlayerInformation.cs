@@ -52,14 +52,22 @@ public class PlayerInformation : MonoBehaviour {
         return killCount;
     }
 
-    public void SwapCharacters(GameObject target)
+    public void LeaveBody()
     {
         GameObject player = GetPlayer();
-
-        target.GetComponent<CharacterController>().UpdateIsPlayer();
-        target.GetComponent<CharacterController>().UpdateTag();
         player.GetComponent<CharacterController>().UpdateIsPlayer();
         player.GetComponent<CharacterController>().UpdateTag();
+    }
+
+    public void EnterBody(GameObject target)
+    {
+        target.GetComponent<CharacterController>().UpdateIsPlayer();
+        target.GetComponent<CharacterController>().UpdateTag();
+    }
+
+    public void SwapCharacters(GameObject target)
+    {
+		
     }
 
 }

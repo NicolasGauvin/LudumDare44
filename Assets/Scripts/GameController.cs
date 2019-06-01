@@ -126,7 +126,9 @@ public class GameController : MonoBehaviour {
                 GetComponent<PlayerInformation>().UpdateSoulTime();
                 Invoke("ResetTimeScale", soulTime);
                 player = GetPlayerInformation();
-                Instantiate(soul, player.transform.position, player.transform.rotation);
+                GameObject soulGameObject = Instantiate(soul, player.transform.position, player.transform.rotation);
+                soulGameObject.GetComponent<SoulController>().origin = player;
+                GetComponent<PlayerInformation>().LeaveBody();
             }
 
         }

@@ -6,12 +6,16 @@ public class SoulController : MonoBehaviour
 {
     public GameObject gameController;
     public float speed;
+    public float waitTime;
+    private bool canEnterOrigin;
     private Rigidbody2D rb;
     private Vector2 moveAmount;
+    public GameObject origin;
 
     // Start is called before the first frame update
     void Start()
     {
+        canEnterOrigin = false;
         rb = GetComponent<Rigidbody2D>();
         gameController = GameObject.Find("GameController");
     }
@@ -35,15 +39,19 @@ public class SoulController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject);
-        
         if (collision.gameObject.tag == "Untagged")
         {
-            gameController.GetComponent<PlayerInformation>().SwapCharacters(collision.gameObject);
-            Destroy(gameObject);
-            gameController.GetComponent<PlayerInformation>().UpdateSoulTime();
+            if (canEnterOrigin == true || collision.gameObject != origin)
+            {
+                gameController.GetComponent<PlayerInformation>().EnterBody(collision.gameObject);
+                Destroy(gameObject);
+                gameController.GetComponent<PlayerInformation>().UpdateSoulTime();
+            }
         }
-        
     }
 
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        canEnterOrigin = true;
+    }
 }
