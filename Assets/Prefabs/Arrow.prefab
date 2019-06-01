@@ -95,9 +95,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  lifeTime: 0.5
+  distance: 2
   damage: 3
   spawnTime: 0
+  spawnPosition: {x: 0, y: 0, z: 0}
   origin: {fileID: 0}
   gameController: {fileID: 0}
 --- !u!61 &3575441776455679245

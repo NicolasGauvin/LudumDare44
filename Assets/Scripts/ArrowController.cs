@@ -6,21 +6,28 @@ public class ArrowController : MonoBehaviour
 {
     public float speed;
     private float newSpeed;
-    public float lifeTime;
+    public float distance;
     public int damage;
     public float spawnTime;
+    public Vector3 spawnPosition;
     public GameObject origin;
     public GameObject gameController;
 
     void Start()
     {
-        spawnTime = Time.deltaTime;
+        spawnPosition = transform.position;
         gameController = GameObject.Find("GameController");
     }
 
 
     void Update()
     {
+        Debug.Log(Vector3.Distance(spawnPosition, transform.position));
+        if (Vector3.Distance(spawnPosition, transform.position) > distance)
+        {
+            Destroy(gameObject);
+        }
+        //Debug.Log(transform.position);
         if (gameController.GetComponent<PlayerInformation>().IsSoulTime())
         {
             newSpeed = speed * 0.1f;
