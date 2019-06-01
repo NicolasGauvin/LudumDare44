@@ -7,6 +7,8 @@ TagManager:
   - None
   - Character
   - Soul
+  - terrain
+  - projectile
   layers:
   - Default
   - TransparentFX
