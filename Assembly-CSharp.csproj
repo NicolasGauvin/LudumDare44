@@ -298,7 +298,11 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.2f1/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
+<<<<<<< HEAD
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.2f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+=======
+      <HintPath>/Applications/Unity/Hub/Editor/2019.1.2f1/Unity.app/Contents/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+>>>>>>> 8c9aedceb4c31ea23054485793336fef462c4fe7
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>C:/Users/Nicolas Gauvin/Documents/Unity Projects/LudumDare44/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
@@ -307,7 +311,11 @@
       <HintPath>C:/Users/Nicolas Gauvin/Documents/Unity Projects/LudumDare44/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
+<<<<<<< HEAD
       <HintPath>C:/Users/Nicolas Gauvin/Documents/Unity Projects/LudumDare44/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+=======
+      <HintPath>/Users/Koneko/Desktop/LudumDare44/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+>>>>>>> 8c9aedceb4c31ea23054485793336fef462c4fe7
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.2f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
